@@ -1,0 +1,8 @@
+metric_name,inferred_variable_id,unit,year_start,year_end,year_count,city_count,record_count,observed_count,missing_count,missing_rate,manual_review_city_count,manual_review_cities,coverage_notes
+住宅开发投资额,VAR_CONSTRUCTION,百万人民币,2000,2024,25,298,7450,6683,767,0.1030,4,哈密;巢湖;莱芜;那曲,包含需人工核查城市；存在缺失值
+住宅销售面积,VAR_VOLUME_TRANSACTION,千平方米,2005,2024,20,298,5960,5621,339,0.0569,4,哈密;巢湖;莱芜;那曲,包含需人工核查城市；存在缺失值
+住宅销售额,VAR_VOLUME_TRANSACTION,百万人民币,2005,2024,20,297,5940,5391,549,0.0924,3,哈密;巢湖;莱芜,包含需人工核查城市；存在缺失值
+商品房销售面积,VAR_VOLUME_TRANSACTION,千平方米,2002,2024,23,298,6854,6593,261,0.0381,4,哈密;巢湖;莱芜;那曲,包含需人工核查城市；存在缺失值
+商品房销售额,VAR_VOLUME_TRANSACTION,百万人民币,2002,2024,23,297,6831,6363,468,0.0685,3,哈密;巢湖;莱芜,包含需人工核查城市；存在缺失值
+地级市房价,VAR_PRICE_NEW,元/平方米,2000,2022,23,296,6808,6482,326,0.0479,2,哈密;那曲,包含需人工核查城市；存在缺失值
+房地产开发投资额,VAR_CONSTRUCTION,百万人民币,2000,2024,25,298,7450,6960,490,0.0658,4,哈密;巢湖;莱芜;那曲,包含需人工核查城市；存在缺失值

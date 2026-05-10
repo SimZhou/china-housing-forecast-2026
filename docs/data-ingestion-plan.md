@@ -27,6 +27,8 @@
 - 城市主键表：`data/city-registry.csv`。
 - 城市主键脚本：`src/build_city_registry.py`。
 - 本地长表转换脚本：`src/normalize_prefecture_housing_data.py`。
+- 聚合质量摘要：`data/prefecture-housing-quality-summary.csv`。
+- 质量摘要脚本：`src/summarize_prefecture_housing_data.py`。
 - 质量检查报告：`reports/data-quality-notes.md`。
 
 ## 验收标准
@@ -36,4 +38,5 @@
 - 购买数据必须先通过文件级盘点，再进入字段级验真。
 - 跨数据源合并必须优先使用 `city_key`，中文城市名只能作为展示字段或辅助核对字段。
 - 购买数据衍生的数值长表只允许保存在 `data/processed/`，不提交到 Git。
+- 可提交的质量摘要只能包含聚合指标，不得包含逐城市逐年原始数值。
 - 所有原始购买文件保持 ignored，不进入 Git。

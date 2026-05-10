@@ -33,6 +33,7 @@
 - `data/purchased-field-registry.csv` 由 `src/inspect_purchased_spreadsheets.py` 生成；字段清单只记录结构和质量指标，不提交原始数据。
 - `data/prefecture-city-coverage-audit.csv` 由 `src/audit_prefecture_city_coverage.py` 生成；只记录城市覆盖差异，不包含原始数值。
 - `data/city-registry.csv` 由 `src/build_city_registry.py` 生成；跨数据源 join 优先使用 `city_key`，不要直接用中文城市名。
+- `data/prefecture-housing-quality-summary.csv` 由 `src/summarize_prefecture_housing_data.py` 基于 ignored 本地长表生成；只允许包含聚合质量指标。
 - `src/normalize_prefecture_housing_data.py` 生成的长表写入 `data/processed/`，属于购买数据衍生数值数据，不得提交。
 - `data/raw/purchased/*/` 只提交 `DATA_SOURCE.md`；购买数据原文件不得入 Git，也不得公开转载。
 - 大文件、付费数据、不可再分发数据不要提交到 Git；只提交获取方式、字段说明和处理脚本。

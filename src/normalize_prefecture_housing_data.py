@@ -30,6 +30,7 @@ DEFAULT_OUTPUT = (
     / "purchased"
     / "prefecture-real-estate-indicators-long.csv"
 )
+DEFAULT_CITY_REGISTRY = REPO_ROOT / "data" / "city-registry.csv"
 INSPECT_SCRIPT = REPO_ROOT / "src" / "inspect_purchased_spreadsheets.py"
 ZERO_WIDTH_CHARS = "\u200b\u200c\u200d\ufeff"
 PROVINCE_NAMES = {
@@ -75,6 +76,7 @@ FIELDNAMES = [
     "metric_name",
     "inferred_variable_id",
     "province",
+    "city_key",
     "city_raw",
     "city_normalized",
     "unit",
@@ -127,6 +129,15 @@ def find_column(header: list[str], candidates: list[str]) -> int | None:
     return None
 
 
+def load_city_registry(path: Path) -> dict[str, str]:
+    with path.open(newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    registry = {row["city_name"]: row["city_key"] for row in rows}
+    if not registry:
+        raise ValueError(f"empty city registry: {path}")
+    return registry
+
+
 def city_from_label(label: str) -> str:
     parts = [clean_text(part) for part in label.split(":") if clean_text(part)]
     return parts[-1] if len(parts) >= 2 else ""
@@ -141,7 +152,7 @@ def choose_city(raw_city: str, label: str) -> tuple[str, str]:
     return city, ""
 
 
-def read_workbook(path: Path, inspect_mod) -> list[dict[str, str]]:
+def read_workbook(path: Path, inspect_mod, city_registry: dict[str, str]) -> list[dict[str, str]]:
     output_rows: list[dict[str, str]] = []
 
     with ZipFile(path) as zf:
@@ -176,6 +187,9 @@ def read_workbook(path: Path, inspect_mod) -> list[dict[str, str]]:
         frequency = row[frequency_col] if frequency_col is not None and len(row) > frequency_col else ""
         label = row[label_col] if len(row) > label_col else ""
         city_normalized, city_note = choose_city(city_raw, label)
+        city_key = city_registry.get(city_normalized)
+        if city_key is None:
+            raise ValueError(f"city not found in registry: {city_normalized} ({path.name})")
 
         for year_col, year in zip(year_cols, years):
             raw_value = row[year_col] if len(row) > year_col else ""
@@ -188,6 +202,7 @@ def read_workbook(path: Path, inspect_mod) -> list[dict[str, str]]:
                     "metric_name": metric,
                     "inferred_variable_id": variable_id,
                     "province": clean_text(province),
+                    "city_key": city_key,
                     "city_raw": city_raw,
                     "city_normalized": city_normalized,
                     "unit": clean_text(row_unit),
@@ -223,15 +238,17 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, default=DEFAULT_INPUT, help="待转换的 Excel 目录")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT, help="输出 CSV 路径")
+    parser.add_argument("--city-registry", type=Path, default=DEFAULT_CITY_REGISTRY, help="城市主键表")
     args = parser.parse_args()
 
     inspect_mod = load_inspect_module()
+    city_registry = load_city_registry(args.city_registry.resolve())
     rows: list[dict[str, str]] = []
     files = sorted(args.input.resolve().glob("*.xlsx"))
     if not files:
         raise SystemExit(f"no xlsx files found in {args.input}")
     for file_path in files:
-        rows.extend(read_workbook(file_path, inspect_mod))
+        rows.extend(read_workbook(file_path, inspect_mod, city_registry))
 
     write_csv(rows, args.output.resolve())
     print(f"converted {len(files)} workbooks, wrote {len(rows)} rows to {args.output.resolve().relative_to(REPO_ROOT)}")
