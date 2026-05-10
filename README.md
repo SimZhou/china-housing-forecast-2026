@@ -56,10 +56,12 @@
 - `src/normalize_prefecture_housing_data.py`：把 7 个宽表转换为本地长表，输出到 ignored 的 `data/processed/`。
 - `src/build_city_registry.py`：从城市覆盖核对表生成稳定城市主键表。
 - `src/summarize_prefecture_housing_data.py`：基于本地长表生成可提交的聚合质量摘要。
+- `src/build_city_tier_seed.py`：基于城市主键表生成第一版城市层级种子表。
 - `data/purchased-data-inventory.csv`：记录购买数据的文件名、大小、类型、来源登记 ID 和 Git 策略。
 - `data/purchased-field-registry.csv`：地级市房地产指标 7 个 Excel 的字段级清单。
 - `data/prefecture-city-coverage-audit.csv`：城市覆盖核对表，不含原始数值。
 - `data/city-registry.csv`：项目城市主键表，后续跨数据源 join 应优先使用 `city_key`。
+- `data/city-tier-seed-v1.csv`：第一版城市层级种子表，覆盖 298 个城市，后续需用数据校正。
 - `data/prefecture-housing-quality-summary.csv`：地级市房地产指标的聚合质量摘要，不含逐城市逐年数值。
 - `reports/data-quality-notes.md`：购买数据第一版质量检查笔记。
 

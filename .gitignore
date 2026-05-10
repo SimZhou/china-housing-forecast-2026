@@ -30,6 +30,7 @@ data/processed/*
 *.feather
 *.csv
 !data/city-registry.csv
+!data/city-tier-seed-v1.csv
 !data/prefecture-housing-quality-summary.csv
 !data/purchased-data-inventory.csv
 !data/purchased-field-registry.csv

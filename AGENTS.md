@@ -37,6 +37,7 @@
 - `data/purchased-field-registry.csv` 由 `src/inspect_purchased_spreadsheets.py` 生成；字段清单只记录结构和质量指标，不提交原始数据。
 - `data/prefecture-city-coverage-audit.csv` 由 `src/audit_prefecture_city_coverage.py` 生成；只记录城市覆盖差异，不包含原始数值。
 - `data/city-registry.csv` 由 `src/build_city_registry.py` 生成；跨数据源 join 优先使用 `city_key`，不要直接用中文城市名。
+- `data/city-tier-seed-v1.csv` 由 `src/build_city_tier_seed.py` 生成；这是人工规则种子，不是最终城市分层，建模前必须用人口、产业、库存、成交和租金数据校正。
 - `data/prefecture-housing-quality-summary.csv` 由 `src/summarize_prefecture_housing_data.py` 基于 ignored 本地长表生成；只允许包含聚合质量指标。
 - `src/normalize_prefecture_housing_data.py` 生成的长表写入 `data/processed/`，属于购买数据衍生数值数据，不得提交。
 - `data/raw/purchased/*/` 只提交 `DATA_SOURCE.md`；购买数据原文件不得入 Git，也不得公开转载。
