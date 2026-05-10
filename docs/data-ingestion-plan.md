@@ -23,6 +23,8 @@
 - 数据接入脚本：`src/inventory_purchased_data.py`。
 - 字段级清单：`data/purchased-field-registry.csv`。
 - 字段检查脚本：`src/inspect_purchased_spreadsheets.py`。
+- 城市覆盖核对表：`data/prefecture-city-coverage-audit.csv`。
+- 本地长表转换脚本：`src/normalize_prefecture_housing_data.py`。
 - 质量检查报告：`reports/data-quality-notes.md`。
 
 ## 验收标准
@@ -30,4 +32,5 @@
 - 任何进入分析的数据源，都能追溯到 `source-registry.csv`。
 - 任何进入模型或报告的变量，都能追溯到 `variable-registry.csv`。
 - 购买数据必须先通过文件级盘点，再进入字段级验真。
+- 购买数据衍生的数值长表只允许保存在 `data/processed/`，不提交到 Git。
 - 所有原始购买文件保持 ignored，不进入 Git。

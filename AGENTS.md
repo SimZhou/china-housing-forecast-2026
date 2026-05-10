@@ -31,6 +31,8 @@
 - `data/variable-registry.csv` 是变量登记表；变量进入报告、模型或前端前，必须先登记定义、代理指标、适用城市层级和混杂因素。
 - `data/purchased-data-inventory.csv` 由 `src/inventory_purchased_data.py` 生成；购买数据目录变化后先重新生成清单，再提交元数据。
 - `data/purchased-field-registry.csv` 由 `src/inspect_purchased_spreadsheets.py` 生成；字段清单只记录结构和质量指标，不提交原始数据。
+- `data/prefecture-city-coverage-audit.csv` 由 `src/audit_prefecture_city_coverage.py` 生成；只记录城市覆盖差异，不包含原始数值。
+- `src/normalize_prefecture_housing_data.py` 生成的长表写入 `data/processed/`，属于购买数据衍生数值数据，不得提交。
 - `data/raw/purchased/*/` 只提交 `DATA_SOURCE.md`；购买数据原文件不得入 Git，也不得公开转载。
 - 大文件、付费数据、不可再分发数据不要提交到 Git；只提交获取方式、字段说明和处理脚本。
 - 数据处理代码应保留输入、输出、口径转换和缺失值处理说明。
