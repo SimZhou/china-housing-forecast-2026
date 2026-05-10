@@ -97,7 +97,7 @@
 - 默认输出趋势 CSV：`data/processed/purchased/prefecture-housing-tier-trends.csv`
 - 默认输出 SVG 图表目录：`reports/figures/purchased/prefecture-housing-tier-trends/`
 - 当前可生成 636 行按指标、年份和城市层级聚合的趋势数据，以及 7 个 SVG 图表。
-- 趋势 CSV 和 SVG 图表包含购买数据衍生数值，均保持 ignored，不提交到 Git。
+- 趋势 CSV 保持 ignored，不提交到 Git；SVG 图表可提交，用于报告展示。
 - 图表同一指标内共用一套坐标轴；房价指标只输出均值和中位数，不计算城市求和。
 
 ## 下一步

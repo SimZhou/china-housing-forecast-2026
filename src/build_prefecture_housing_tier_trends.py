@@ -33,6 +33,10 @@ TIER_COLORS = {
     "普通二线": "#ff7f0e",
     "三四线": "#d62728",
 }
+PLOT_LEFT = 84
+PLOT_RIGHT = 32
+PLOT_TOP = 48
+PLOT_BOTTOM = 82
 METRIC_SLUGS = {
     "地级市房价": "prefecture_price",
     "商品房销售额": "commercial_housing_sales_value",
@@ -174,20 +178,43 @@ def points_for_series(
     year_span = max(max_year - min_year, 1)
     value_span = max(max_value - min_value, 1.0)
 
-    left, right, top, bottom = 72, 24, 36, 56
-    plot_width = width - left - right
-    plot_height = height - top - bottom
+    plot_width = width - PLOT_LEFT - PLOT_RIGHT
+    plot_height = height - PLOT_TOP - PLOT_BOTTOM
 
     points: list[str] = []
     for year, value in series:
-        x = left + ((year - min_year) / year_span) * plot_width
-        y = top + (1 - (value - min_value) / value_span) * plot_height
+        x = PLOT_LEFT + ((year - min_year) / year_span) * plot_width
+        y = PLOT_TOP + (1 - (value - min_value) / value_span) * plot_height
         points.append(f"{x:.1f},{y:.1f}")
     return " ".join(points)
 
 
+def year_ticks(min_year: int, max_year: int) -> list[int]:
+    ticks = {min_year, max_year}
+    for year in range(((min_year + 4) // 5) * 5, max_year + 1, 5):
+        ticks.add(year)
+    return sorted(ticks)
+
+
+def value_ticks(min_value: float, max_value: float, count: int = 5) -> list[float]:
+    if count <= 1 or max_value == min_value:
+        return [min_value]
+    step = (max_value - min_value) / (count - 1)
+    return [min_value + step * index for index in range(count)]
+
+
+def scale_x(year: int, min_year: int, max_year: int, width: int) -> float:
+    year_span = max(max_year - min_year, 1)
+    return PLOT_LEFT + ((year - min_year) / year_span) * (width - PLOT_LEFT - PLOT_RIGHT)
+
+
+def scale_y(value: float, min_value: float, max_value: float, height: int) -> float:
+    value_span = max(max_value - min_value, 1.0)
+    return PLOT_TOP + (1 - (value - min_value) / value_span) * (height - PLOT_TOP - PLOT_BOTTOM)
+
+
 def render_svg(metric_name: str, unit: str, rows: list[dict[str, str]], output_path: Path) -> None:
-    width, height = 960, 540
+    width, height = 960, 580
     metric_rows = [row for row in rows if row["metric_name"] == metric_name and row["mean_value"]]
     series_by_tier: dict[str, list[tuple[int, float]]] = defaultdict(list)
     for row in metric_rows:
@@ -200,14 +227,27 @@ def render_svg(metric_name: str, unit: str, rows: list[dict[str, str]], output_p
     min_value, max_value = min(values), max(values)
 
     title = f"{metric_name}：按城市层级的均值趋势"
+    axis_bottom = height - PLOT_BOTTOM
+    axis_right = width - PLOT_RIGHT
     lines: list[str] = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
         '<rect width="100%" height="100%" fill="#ffffff"/>',
-        f'<text x="72" y="30" font-size="20" font-family="Arial, sans-serif">{title}</text>',
-        f'<text x="72" y="512" font-size="13" font-family="Arial, sans-serif">单位：{unit}；数值为购买数据衍生均值，仅本地探索使用</text>',
-        '<line x1="72" y1="484" x2="936" y2="484" stroke="#999" stroke-width="1"/>',
-        '<line x1="72" y1="36" x2="72" y2="484" stroke="#999" stroke-width="1"/>',
+        f'<text x="{PLOT_LEFT}" y="30" font-size="20" font-family="Arial, sans-serif">{title}</text>',
+        f'<text x="{PLOT_LEFT}" y="560" font-size="13" font-family="Arial, sans-serif">单位：{unit}；数值为购买数据衍生均值，仅本地探索使用</text>',
+        f'<line x1="{PLOT_LEFT}" y1="{axis_bottom}" x2="{axis_right}" y2="{axis_bottom}" stroke="#999" stroke-width="1"/>',
+        f'<line x1="{PLOT_LEFT}" y1="{PLOT_TOP}" x2="{PLOT_LEFT}" y2="{axis_bottom}" stroke="#999" stroke-width="1"/>',
     ]
+
+    for year in year_ticks(min_year, max_year):
+        x = scale_x(year, min_year, max_year, width)
+        lines.append(f'<line x1="{x:.1f}" y1="{PLOT_TOP}" x2="{x:.1f}" y2="{axis_bottom}" stroke="#e5e7eb" stroke-width="1"/>')
+        lines.append(f'<line x1="{x:.1f}" y1="{axis_bottom}" x2="{x:.1f}" y2="{axis_bottom + 5}" stroke="#777" stroke-width="1"/>')
+        lines.append(f'<text x="{x:.1f}" y="{axis_bottom + 22}" text-anchor="middle" font-size="12" font-family="Arial, sans-serif">{year}</text>')
+
+    for value in value_ticks(min_value, max_value):
+        y = scale_y(value, min_value, max_value, height)
+        lines.append(f'<line x1="{PLOT_LEFT}" y1="{y:.1f}" x2="{axis_right}" y2="{y:.1f}" stroke="#eef0f3" stroke-width="1"/>')
+        lines.append(f'<text x="{PLOT_LEFT - 8}" y="{y + 4:.1f}" text-anchor="end" font-size="12" font-family="Arial, sans-serif">{value:.0f}</text>')
 
     legend_x = 720
     legend_y = 64
@@ -222,10 +262,6 @@ def render_svg(metric_name: str, unit: str, rows: list[dict[str, str]], output_p
         lines.append(f'<line x1="{legend_x}" y1="{y - 5}" x2="{legend_x + 28}" y2="{y - 5}" stroke="{color}" stroke-width="3"/>')
         lines.append(f'<text x="{legend_x + 36}" y="{y}" font-size="14" font-family="Arial, sans-serif">{tier}</text>')
 
-    lines.append(f'<text x="72" y="504" font-size="12" font-family="Arial, sans-serif">{min_year}</text>')
-    lines.append(f'<text x="900" y="504" font-size="12" font-family="Arial, sans-serif">{max_year}</text>')
-    lines.append(f'<text x="8" y="488" font-size="12" font-family="Arial, sans-serif">{min_value:.2f}</text>')
-    lines.append(f'<text x="8" y="44" font-size="12" font-family="Arial, sans-serif">{max_value:.2f}</text>')
     lines.append("</svg>")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text("\n".join(lines), encoding="utf-8")
