@@ -8,15 +8,42 @@
 
 图表目录：`reports/figures/purchased/prefecture-housing-tier-trends/`
 
-## 图表索引
+## 图表
 
-- [地级市房价](figures/purchased/prefecture-housing-tier-trends/prefecture_price.svg)
-- [商品房销售面积](figures/purchased/prefecture-housing-tier-trends/commercial_housing_sales_area.svg)
-- [商品房销售额](figures/purchased/prefecture-housing-tier-trends/commercial_housing_sales_value.svg)
-- [住宅销售面积](figures/purchased/prefecture-housing-tier-trends/residential_sales_area.svg)
-- [住宅销售额](figures/purchased/prefecture-housing-tier-trends/residential_sales_value.svg)
-- [房地产开发投资额](figures/purchased/prefecture-housing-tier-trends/real_estate_development_investment.svg)
-- [住宅开发投资额](figures/purchased/prefecture-housing-tier-trends/residential_development_investment.svg)
+### 地级市房价
+
+![地级市房价：按城市层级的均值趋势](figures/purchased/prefecture-housing-tier-trends/prefecture_price.svg)
+
+### 商品房销售面积
+
+![商品房销售面积：按城市层级的均值趋势](figures/purchased/prefecture-housing-tier-trends/commercial_housing_sales_area.svg)
+
+### 商品房销售额
+
+![商品房销售额：按城市层级的均值趋势](figures/purchased/prefecture-housing-tier-trends/commercial_housing_sales_value.svg)
+
+### 住宅销售面积
+
+![住宅销售面积：按城市层级的均值趋势](figures/purchased/prefecture-housing-tier-trends/residential_sales_area.svg)
+
+### 住宅销售额
+
+![住宅销售额：按城市层级的均值趋势](figures/purchased/prefecture-housing-tier-trends/residential_sales_value.svg)
+
+### 房地产开发投资额
+
+![房地产开发投资额：按城市层级的均值趋势](figures/purchased/prefecture-housing-tier-trends/real_estate_development_investment.svg)
+
+### 住宅开发投资额
+
+![住宅开发投资额：按城市层级的均值趋势](figures/purchased/prefecture-housing-tier-trends/residential_development_investment.svg)
+
+## Reference
+
+- 数据来源：购买数据-地级市房地产指标 2000-2024，见 `data/raw/purchased/prefecture-real-estate-indicators-2000-2024/DATA_SOURCE.md`。
+- 来源登记：`data/source-registry.csv` 中的 `SRC_CN_PURCHASED_PREF_RE_INDICATORS`。
+- 生成脚本：`src/build_prefecture_housing_tier_trends.py`。
+- 城市层级：`data/city-tier-seed-v1.csv`。
 
 ## 初步观察
 

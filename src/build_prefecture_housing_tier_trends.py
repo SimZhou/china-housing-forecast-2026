@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """生成按城市层级聚合的本地探索性趋势数据和 SVG 图表。
 
-输出属于购买数据衍生数值材料，只写入 ignored 路径，不提交 Git。
+趋势 CSV 属于购买数据衍生数值材料，写入 ignored 路径；SVG 图表可提交用于报告展示。
 """
 
 from __future__ import annotations
@@ -36,7 +36,10 @@ TIER_COLORS = {
 PLOT_LEFT = 84
 PLOT_RIGHT = 32
 PLOT_TOP = 48
-PLOT_BOTTOM = 82
+PLOT_BOTTOM = 112
+SOURCE_REFERENCE = "来源登记：SRC_CN_PURCHASED_PREF_RE_INDICATORS；数据：购买数据-地级市房地产指标2000-2024"
+SOURCE_NOTE_REFERENCE = "数据说明：data/raw/purchased/prefecture-real-estate-indicators-2000-2024/DATA_SOURCE.md"
+SCRIPT_REFERENCE = "生成脚本：src/build_prefecture_housing_tier_trends.py；城市层级：data/city-tier-seed-v1.csv"
 METRIC_SLUGS = {
     "地级市房价": "prefecture_price",
     "商品房销售额": "commercial_housing_sales_value",
@@ -214,7 +217,7 @@ def scale_y(value: float, min_value: float, max_value: float, height: int) -> fl
 
 
 def render_svg(metric_name: str, unit: str, rows: list[dict[str, str]], output_path: Path) -> None:
-    width, height = 960, 580
+    width, height = 960, 640
     metric_rows = [row for row in rows if row["metric_name"] == metric_name and row["mean_value"]]
     series_by_tier: dict[str, list[tuple[int, float]]] = defaultdict(list)
     for row in metric_rows:
@@ -233,7 +236,10 @@ def render_svg(metric_name: str, unit: str, rows: list[dict[str, str]], output_p
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
         '<rect width="100%" height="100%" fill="#ffffff"/>',
         f'<text x="{PLOT_LEFT}" y="30" font-size="20" font-family="Arial, sans-serif">{title}</text>',
-        f'<text x="{PLOT_LEFT}" y="560" font-size="13" font-family="Arial, sans-serif">单位：{unit}；数值为购买数据衍生均值，仅本地探索使用</text>',
+        f'<text x="{PLOT_LEFT}" y="552" font-size="13" font-family="Arial, sans-serif">单位：{unit}；数值为购买数据衍生均值，仅本地探索使用</text>',
+        f'<text x="{PLOT_LEFT}" y="574" font-size="12" font-family="Arial, sans-serif">{SOURCE_REFERENCE}</text>',
+        f'<text x="{PLOT_LEFT}" y="596" font-size="12" font-family="Arial, sans-serif">{SOURCE_NOTE_REFERENCE}</text>',
+        f'<text x="{PLOT_LEFT}" y="618" font-size="12" font-family="Arial, sans-serif">{SCRIPT_REFERENCE}</text>',
         f'<line x1="{PLOT_LEFT}" y1="{axis_bottom}" x2="{axis_right}" y2="{axis_bottom}" stroke="#999" stroke-width="1"/>',
         f'<line x1="{PLOT_LEFT}" y1="{PLOT_TOP}" x2="{PLOT_LEFT}" y2="{axis_bottom}" stroke="#999" stroke-width="1"/>',
     ]
