@@ -17,7 +17,9 @@
 .
 ├── data/
 │   ├── raw/             # 原始数据，仅做归档，不直接手工修改
-│   └── processed/       # 清洗后的中间数据
+│   ├── processed/       # 清洗后的中间数据
+│   ├── source-registry.csv
+│   └── variable-registry.csv
 ├── docs/                # 研究方法、数据源、变量定义
 ├── notebooks/           # 探索性分析
 ├── reports/             # 调研报告、文章草稿和图表输出
@@ -27,9 +29,17 @@
 
 ## 当前阶段
 
-- 建立研究框架和数据源清单。
+- 建立研究框架、变量体系和数据源清单。
 - 设计“预测值 vs 真实值”的更新与评估方式。
 - 暂不急于写爬虫，先确认数据口径、历史跨度和可复核性。
+
+## 第一阶段成果
+
+- `docs/variable-taxonomy.md`：房价相关变量体系。
+- `docs/evidence-protocol.md`：证据分级、偏差处理和反证要求。
+- `docs/city-tier-framework.md`：城市层级研究框架。
+- `data/source-registry.csv`：候选数据源、口径、可信度和下一步动作。
+- `data/variable-registry.csv`：候选变量、代理指标、适用城市层级和混杂因素。
 
 ## 初始问题
 
