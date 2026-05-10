@@ -1,0 +1,24 @@
+id,name,region,category,metric,frequency,time_span,access_method,source_url,credibility,bias_risk,city_tier_relevance,next_action,notes
+SRC_CN_NBS_70CITY,国家统计局70城商品住宅销售价格指数,中国,房价与交易,新房和二手住宅价格指数,月度,按月发布,网页表格,https://www.stats.gov.cn/sj/zxfb/202604/t20260416_1963320.html,B,官方口径可能平滑且只覆盖70城,一线;二线;三线,归档历史网页并解析城市表格,只作参考口径之一
+SRC_CN_NBS_REAL_ESTATE,国家统计局房地产开发和销售数据,中国,供给侧,开发投资;新开工;施工;竣工;销售面积;待售面积,月度,按月发布,网页和数据库,https://data.stats.gov.cn/,B,全国和省级口径可能掩盖城市差异,全国;省级;城市层级,确认可下载字段和历史跨度,用于供给与库存压力
+SRC_CN_LOCAL_NETSIGN,地方住建部门网签数据,中国,房价与交易,新房网签;二手房网签;成交面积,日度或月度,因城市而异,地方网站,TBD,B,城市间口径和可得性差异大,重点城市;城市层级,筛选10个样本城市并记录入口,优先北京上海深圳杭州成都等
+SRC_CN_LANDCHINA,中国土地市场网,中国,土地与财政,土地成交;楼面价;用途;面积,日度,按公告发布,网页查询,https://www.landchina.com/,B,字段清洗复杂且地方公告缺失风险,一线;二线;三四线,验证批量获取方式,用于土地供给和财政依赖
+SRC_CN_PBC_AFRE,中国人民银行社会融资规模,中国,金融条件,社融存量;社融增量;人民币贷款,月度,按月发布,网页和PDF,https://www.pbc.gov.cn/diaochatongjisi/116219/index.html,B,宏观口径不能直接映射城市,全国,整理历史表格入口,用于信用周期
+SRC_CN_PBC_CREDIT,中国人民银行金融机构信贷收支表,中国,金融条件,居民贷款;住房贷款相关代理,月度,按月发布,网页和PDF,https://www.pbc.gov.cn/diaochatongjisi/116219/index.html,B,个人住房贷款细分口径需另查,全国,确认居民中长期贷款字段,用于购房杠杆
+SRC_CN_MCA_MARRIAGE,民政部婚姻登记统计,中国,人口与家庭,结婚登记;离婚登记,季度或年度,按期发布,网页统计,TBD,B,登记数据不等于婚育意愿,全国;省级,确认年度和季度入口,用于婚育需求代理
+SRC_CN_CENSUS,中国人口普查与抽样调查,中国,人口与家庭,常住人口;家庭户;年龄结构;城镇化,十年或年度抽样,长期,统计公报和年鉴,https://www.stats.gov.cn/,B,人口流动和城市口径可能滞后,全国;省级;城市层级,整理七普和年度抽样字段,用于长期需求
+SRC_CN_CGSS,中国综合社会调查,中国,社会文化,价值观;家庭观念;婚育态度;社会信任,年度或不定期,2003年起,注册下载,https://cgss.ruc.edu.cn/,B,题项变化和样本限制影响时间比较,全国;城乡,筛选住房和家庭观念题项,用于社会文化变量
+SRC_CN_CFPS,中国家庭追踪调查,中国,社会文化,家庭关系;人口迁移;教育;收入;健康,两年一次,2010年起,注册下载,https://www.isss.pku.edu.cn/cfps/index.htm,B,申请审核和缺失值处理成本较高,全国;家庭层面,筛选住房和家庭动态变量,用于代际和家庭结构分析
+SRC_CN_CNSDA,中国社会调查数据资料库,中国,社会文化,多项社会调查索引,不定期,因数据集而异,注册下载,https://www.cnsda.org/,C,二级入口需回溯原始调查机构,全国,只作为调查数据发现入口,不直接作为原始来源
+SRC_WVS,World Values Survey,全球,社会文化,价值观;家庭;宗教;个人主义;信任,波次调查,1981年至今,注册下载,https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=Documentation,A,跨国题项可比性和波次间隔限制,国际比较,下载WVS/EVS趋势文件字段说明,用于文化变量国际比较
+SRC_EVS,European Values Study,欧洲,社会文化,家庭观念;价值观;宗教;个人主义,波次调查,1981年至今,注册下载,https://europeanvaluesstudy.eu/methodology-data-documentation/data-downloads/,A,欧洲样本不能直接外推中国,国际比较,筛选家庭和住房相关题项,用于发达经济体对照
+SRC_ASIAN_BAROMETER,Asian Barometer Survey,亚洲,社会文化,政治社会价值观;家庭与信任,波次调查,2000年代起,申请下载,https://asianbarometer.org/datar,A,部分国家特定变量不开放,国际比较;亚洲,确认中国及东亚样本可用性,用于亚洲发展阶段对照
+SRC_BIS_RPP,BIS Residential Property Prices,全球,国际房价,住宅价格指数;同比;实际价格,月度或季度,约1970年至今,数据门户,https://data.bis.org/topics/RPP/data,A,各国原始口径不同但有selected序列,国际比较,下载selected序列元数据,用于跨国房价周期
+SRC_OECD_HOUSING,OECD Housing Prices,OECD与伙伴经济体,国际房价,名义房价;实际房价;房价收入比;房价租金比,季度,长期序列,数据门户,https://www.oecd.org/en/data/indicators/housing-prices.html,A,主要覆盖OECD经济体,国际比较,下载指标并记录基准年,用于负担能力比较
+SRC_FHFA_HPI,FHFA House Price Index,美国,国际房价,州;都会区;县;邮编房价指数,月度或季度,1970年代中期起,CSV;JSON;XLSX,https://www.fhfa.gov/house-price-index,A,仅单户住宅且美国制度特定,国际比较;城市层级,下载MSA和州级序列,用于美国城市分化案例
+SRC_CASE_SHILLER,S&P Cotality Case-Shiller,美国,国际房价,全国;10城;20城房价指数,月度,长期序列,网页和授权数据,https://www.spglobal.com/spdji/en/index-family/indicators/sp-cotality-case-shiller/,A,单户住宅且两个月发布滞后,国际比较;核心城市,记录可免费访问范围,用于泡沫和核心城市对照
+SRC_EUROSTAT_HPI,Eurostat Housing Price Statistics,欧盟,国际房价,房价指数;交易数量;自住房价格指数,季度和年度,长期序列,数据门户,https://ec.europa.eu/eurostat/web/housing-price-statistics/information-data,A,欧盟制度与中国差异大,国际比较,下载HPI和house sales数据,用于欧洲样本对照
+SRC_JP_MLIT_RPPI,日本国土交通省不动产价格指数,日本,国际房价,住宅价格指数;交易件数;面积,月度,长期序列,Excel和PDF,https://www.mlit.go.jp/totikensangyo/totikensangyo_tk5_000085.html,A,日文资料和修订信息需跟踪,国际比较;城市层级,下载住宅指数Excel,用于日本泡沫后路径
+SRC_KR_REB_HOUSE,Korea Real Estate Board房价趋势调查,韩国,国际房价,住宅买卖价格;全租;月租,月度和周度,1986年起,网页统计,https://www.reb.or.kr/rebEng/cm/cntnts/cntntsView.do?cntntsId=1372&mi=10057,A,调查样本法和周度指标可能波动,国际比较;城市层级,确认下载入口和历史口径,用于韩国高杠杆对照
+SRC_CN_PLATFORM_LISTING,主流房产平台挂牌数据,中国,替代指标,挂牌价;挂牌量;调价;成交周期,高频,平台留存不稳定,网页或商业接口,TBD,C,平台覆盖和反爬限制显著,重点城市;城市层级,先只做合规可访问性评估,用于市场情绪和流动性
+SRC_CN_SEARCH_TRENDS,搜索指数与公开趋势,中国,替代指标,买房;卖房;房价;断供等关键词热度,日度或周度,因平台而异,网页查询,TBD,D,只反映关注度且易受事件冲击,全国;城市层级,筛选关键词并与成交验证,只能发现假设
