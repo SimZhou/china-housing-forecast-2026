@@ -29,6 +29,7 @@
 - `data/processed/` 保存清洗后的中间数据，需能由代码或 notebook 复现。
 - `data/source-registry.csv` 是候选数据源登记表；新增数据源前先补来源、口径、可信度、偏差风险和下一步动作。
 - `data/variable-registry.csv` 是变量登记表；变量进入报告、模型或前端前，必须先登记定义、代理指标、适用城市层级和混杂因素。
+- `data/purchased-data-inventory.csv` 由 `src/inventory_purchased_data.py` 生成；购买数据目录变化后先重新生成清单，再提交元数据。
 - `data/raw/purchased/*/` 只提交 `DATA_SOURCE.md`；购买数据原文件不得入 Git，也不得公开转载。
 - 大文件、付费数据、不可再分发数据不要提交到 Git；只提交获取方式、字段说明和处理脚本。
 - 数据处理代码应保留输入、输出、口径转换和缺失值处理说明。
@@ -41,6 +42,7 @@
 - `src/`：可复用的数据抓取、清洗、建模和评估代码。
 - `web/`：后续前端展示页，展示预测值、真实值、误差和数据来源。
 - `docs/variable-taxonomy.md`、`docs/evidence-protocol.md`、`docs/city-tier-framework.md` 是第一阶段研究底座，扩展研究范围时优先更新这些文件。
+- `docs/data-ingestion-plan.md` 是第二阶段数据接入计划，新增数据接入脚本或清单时同步更新。
 
 ## 输出要求
 

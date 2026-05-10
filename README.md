@@ -40,6 +40,13 @@
 - `docs/city-tier-framework.md`：城市层级研究框架。
 - `data/source-registry.csv`：候选数据源、口径、可信度和下一步动作。
 - `data/variable-registry.csv`：候选变量、代理指标、适用城市层级和混杂因素。
+- `data/purchased-data-inventory.csv`：本地购买数据文件级元数据清单，不含原始数据内容。
+
+## 第二阶段成果
+
+- `docs/data-ingestion-plan.md`：数据接入顺序、购买数据接入规则和验收标准。
+- `src/inventory_purchased_data.py`：扫描 `data/raw/purchased/` 并生成购买数据元数据清单。
+- `data/purchased-data-inventory.csv`：记录购买数据的文件名、大小、类型、来源登记 ID 和 Git 策略。
 
 ## 本地购买数据
 

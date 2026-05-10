@@ -29,6 +29,7 @@ data/processed/*
 *.parquet
 *.feather
 *.csv
+!data/purchased-data-inventory.csv
 !data/source-registry.csv
 !data/variable-registry.csv
 *.xlsx
