@@ -36,4 +36,6 @@ data/processed/*
 !data/prefecture-city-coverage-audit.csv
 !data/source-registry.csv
 !data/variable-registry.csv
+!data/model-target-registry.csv
+!data/property-feature-registry.csv
 *.xlsx

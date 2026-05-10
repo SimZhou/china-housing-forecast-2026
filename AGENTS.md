@@ -20,8 +20,10 @@
 - 不引用社交媒体帖子、媒体观点、专家发言作为核心证据；这类材料只能用于发现问题或生成待验证假设。
 - 使用论文、国际机构报告、政府数据、交易平台数据时，必须记录来源、发布时间、获取日期、指标口径和时间范围。
 - 不做“全国均值直接推出所有城市”的结论；涉及价格判断时优先区分城市层级、区域、住房类型和新房/二手房。
+- 不做“城市均值直接推出具体房产”的结论；单套房判断必须补充地段、楼龄、户型、租金、成交流动性和持有成本。
 - 不把国际经验机械套用到中国；只能比较变量和约束条件。
 - 不只用经济变量解释房价；社会文化、代际价值观、婚育观念、家庭责任和个人生活方式变化也要进入候选解释变量。
+- 预测目标包括宏观长期方向、城市和地段分化、单套房价格方向、买房与租房比较；新增模型或报告前先对照 `docs/prediction-targets.md` 和 `data/model-target-registry.csv`。
 
 ## 数据约定
 
@@ -29,6 +31,8 @@
 - `data/processed/` 保存清洗后的中间数据，需能由代码或 notebook 复现。
 - `data/source-registry.csv` 是候选数据源登记表；新增数据源前先补来源、口径、可信度、偏差风险和下一步动作。
 - `data/variable-registry.csv` 是变量登记表；变量进入报告、模型或前端前，必须先登记定义、代理指标、适用城市层级和混杂因素。
+- `data/model-target-registry.csv` 是预测目标登记表；模型输出、报告结论和前端页面不得超出已登记目标的粒度。
+- `data/property-feature-registry.csv` 是单套房特征登记表；单套房模型输入必须先在此登记，不得临时拼字段。
 - `data/purchased-data-inventory.csv` 由 `src/inventory_purchased_data.py` 生成；购买数据目录变化后先重新生成清单，再提交元数据。
 - `data/purchased-field-registry.csv` 由 `src/inspect_purchased_spreadsheets.py` 生成；字段清单只记录结构和质量指标，不提交原始数据。
 - `data/prefecture-city-coverage-audit.csv` 由 `src/audit_prefecture_city_coverage.py` 生成；只记录城市覆盖差异，不包含原始数值。
@@ -46,7 +50,7 @@
 - `notebooks/`：探索性分析，不承载长期稳定逻辑。
 - `src/`：可复用的数据抓取、清洗、建模和评估代码。
 - `web/`：后续前端展示页，展示预测值、真实值、误差和数据来源。
-- `docs/variable-taxonomy.md`、`docs/evidence-protocol.md`、`docs/city-tier-framework.md` 是第一阶段研究底座，扩展研究范围时优先更新这些文件。
+- `docs/variable-taxonomy.md`、`docs/evidence-protocol.md`、`docs/city-tier-framework.md`、`docs/prediction-targets.md` 是第一阶段研究底座，扩展研究范围时优先更新这些文件。
 - `docs/data-ingestion-plan.md` 是第二阶段数据接入计划，新增数据接入脚本或清单时同步更新。
 
 ## 输出要求
