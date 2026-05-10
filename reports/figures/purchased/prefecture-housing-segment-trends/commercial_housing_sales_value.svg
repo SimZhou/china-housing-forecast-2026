@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="700" viewBox="0 0 1080 700">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="84" y="30" font-size="20" font-family="Arial, sans-serif">商品房销售额：按城市细分组的均值趋势</text>
+<text x="84" y="612" font-size="13" font-family="Arial, sans-serif">单位：百万人民币；数值为购买数据衍生均值，仅本地探索使用</text>
+<text x="84" y="636" font-size="12" font-family="Arial, sans-serif">来源登记：SRC_CN_PURCHASED_PREF_RE_INDICATORS；数据：购买数据-地级市房地产指标2000-2024</text>
+<text x="84" y="658" font-size="12" font-family="Arial, sans-serif">数据说明：data/raw/purchased/prefecture-real-estate-indicators-2000-2024/DATA_SOURCE.md</text>
+<text x="84" y="680" font-size="12" font-family="Arial, sans-serif">生成脚本：src/build_prefecture_housing_segment_trends.py；城市细分：data/city-segment-seed-v1.csv</text>
+<line x1="84" y1="588" x2="1048" y2="588" stroke="#999" stroke-width="1"/>
+<line x1="84" y1="48" x2="84" y2="588" stroke="#999" stroke-width="1"/>
+<line x1="84.0" y1="48" x2="84.0" y2="588" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="84.0" y1="588" x2="84.0" y2="593" stroke="#777" stroke-width="1"/>
+<text x="84.0" y="610" text-anchor="middle" font-size="12" font-family="Arial, sans-serif">2002</text>
+<line x1="215.5" y1="48" x2="215.5" y2="588" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="215.5" y1="588" x2="215.5" y2="593" stroke="#777" stroke-width="1"/>
+<text x="215.5" y="610" text-anchor="middle" font-size="12" font-family="Arial, sans-serif">2005</text>
+<line x1="434.5" y1="48" x2="434.5" y2="588" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="434.5" y1="588" x2="434.5" y2="593" stroke="#777" stroke-width="1"/>
+<text x="434.5" y="610" text-anchor="middle" font-size="12" font-family="Arial, sans-serif">2010</text>
+<line x1="653.6" y1="48" x2="653.6" y2="588" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="653.6" y1="588" x2="653.6" y2="593" stroke="#777" stroke-width="1"/>
+<text x="653.6" y="610" text-anchor="middle" font-size="12" font-family="Arial, sans-serif">2015</text>
+<line x1="872.7" y1="48" x2="872.7" y2="588" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="872.7" y1="588" x2="872.7" y2="593" stroke="#777" stroke-width="1"/>
+<text x="872.7" y="610" text-anchor="middle" font-size="12" font-family="Arial, sans-serif">2020</text>
+<line x1="1048.0" y1="48" x2="1048.0" y2="588" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="1048.0" y1="588" x2="1048.0" y2="593" stroke="#777" stroke-width="1"/>
+<text x="1048.0" y="610" text-anchor="middle" font-size="12" font-family="Arial, sans-serif">2024</text>
+<line x1="84" y1="588.0" x2="1048" y2="588.0" stroke="#eef0f3" stroke-width="1"/>
+<text x="76" y="592.0" text-anchor="end" font-size="12" font-family="Arial, sans-serif">305</text>
+<line x1="84" y1="453.0" x2="1048" y2="453.0" stroke="#eef0f3" stroke-width="1"/>
+<text x="76" y="457.0" text-anchor="end" font-size="12" font-family="Arial, sans-serif">130857</text>
+<line x1="84" y1="318.0" x2="1048" y2="318.0" stroke="#eef0f3" stroke-width="1"/>
+<text x="76" y="322.0" text-anchor="end" font-size="12" font-family="Arial, sans-serif">261409</text>
+<line x1="84" y1="183.0" x2="1048" y2="183.0" stroke="#eef0f3" stroke-width="1"/>
+<text x="76" y="187.0" text-anchor="end" font-size="12" font-family="Arial, sans-serif">391961</text>
+<line x1="84" y1="48.0" x2="1048" y2="48.0" stroke="#eef0f3" stroke-width="1"/>
+<text x="76" y="52.0" text-anchor="end" font-size="12" font-family="Arial, sans-serif">522514</text>
+<polyline fill="none" stroke="#1f77b4" stroke-width="2.2" points="84.0,532.6 127.8,518.1 171.6,476.6 215.5,438.0 259.3,435.8 303.1,393.0 346.9,457.0 390.7,330.1 434.5,370.1 478.4,394.4 522.2,361.8 566.0,291.4 609.8,330.4 653.6,230.3 697.5,128.8 741.3,248.7 785.1,222.8 828.9,165.2 872.7,103.5 916.5,49.2 960.4,107.8 1004.2,95.0 1048.0,48.0"/>
+<line x1="744" y1="59" x2="772" y2="59" stroke="#1f77b4" stroke-width="3"/>
+<text x="780" y="64" font-size="13" font-family="Arial, sans-serif">一线核心城市</text>
+<polyline fill="none" stroke="#2ca02c" stroke-width="2.2" points="84.0,579.3 127.8,575.2 171.6,572.0 215.5,558.1 259.3,549.8 303.1,527.7 346.9,542.7 390.7,501.3 434.5,489.7 478.4,483.2 522.2,471.9 566.0,445.6 609.8,448.1 653.6,418.7 697.5,333.1 741.3,311.8 785.1,289.4 828.9,276.7 872.7,254.8 916.5,232.9 960.4,336.7 1004.2,355.6 1048.0,391.3"/>
+<line x1="744" y1="83" x2="772" y2="83" stroke="#2ca02c" stroke-width="3"/>
+<text x="780" y="88" font-size="13" font-family="Arial, sans-serif">新一线与强二线核心城市</text>
+<polyline fill="none" stroke="#ff7f0e" stroke-width="2.2" points="84.0,585.4 127.8,584.4 171.6,583.2 215.5,579.8 259.3,577.8 303.1,573.4 346.9,575.0 390.7,565.6 434.5,558.9 478.4,555.3 522.2,551.2 566.0,541.9 609.8,545.9 653.6,542.9 697.5,528.9 741.3,512.6 785.1,501.1 828.9,493.4 872.7,483.7 916.5,485.5 960.4,523.2 1004.2,531.2 1048.0,549.2"/>
+<line x1="744" y1="107" x2="772" y2="107" stroke="#ff7f0e" stroke-width="3"/>
+<text x="780" y="112" font-size="13" font-family="Arial, sans-serif">普通二线与区域中心城市</text>
+<polyline fill="none" stroke="#7f7f7f" stroke-width="2.2" points="84.0,588.0 127.8,588.0 171.6,587.4 215.5,587.5 259.3,587.3 303.1,586.4 346.9,586.5 390.7,585.2 434.5,584.2 478.4,586.6 522.2,585.8 566.0,585.7 609.8,586.0 653.6,586.4 697.5,585.7 741.3,583.1 785.1,583.6 828.9,585.7 872.7,586.1 916.5,585.7 960.4,587.1 1004.2,586.4 1048.0,586.2"/>
+<line x1="744" y1="131" x2="772" y2="131" stroke="#7f7f7f" stroke-width="3"/>
+<text x="780" y="136" font-size="13" font-family="Arial, sans-serif">历史区划或数据异常城市</text>
+<polyline fill="none" stroke="#9467bd" stroke-width="2.2" points="84.0,588.0 127.8,587.9 171.6,587.9 215.5,587.5 259.3,587.2 303.1,586.8 346.9,586.7 390.7,586.0 434.5,585.3 478.4,583.9 522.2,583.4 566.0,582.6 609.8,584.1 653.6,585.5 697.5,585.5 741.3,585.5 785.1,585.8 828.9,585.9 872.7,585.7 916.5,585.3 960.4,586.4 1004.2,586.3 1048.0,586.7"/>
+<line x1="744" y1="155" x2="772" y2="155" stroke="#9467bd" stroke-width="3"/>
+<text x="780" y="160" font-size="13" font-family="Arial, sans-serif">资源型或收缩型候选城市</text>
+<polyline fill="none" stroke="#17becf" stroke-width="2.2" points="84.0,587.6 127.8,587.3 171.6,587.0 215.5,586.2 259.3,585.4 303.1,583.8 346.9,584.1 390.7,580.7 434.5,577.3 478.4,575.4 522.2,575.1 566.0,570.6 609.8,571.0 653.6,568.5 697.5,562.0 741.3,555.1 785.1,552.9 828.9,550.7 872.7,547.8 916.5,545.1 960.4,556.9 1004.2,563.0 1048.0,568.5"/>
+<line x1="744" y1="179" x2="772" y2="179" stroke="#17becf" stroke-width="3"/>
+<text x="780" y="184" font-size="13" font-family="Arial, sans-serif">都市圈外围承接型候选城市</text>
+<polyline fill="none" stroke="#d62728" stroke-width="2.2" points="84.0,587.7 127.8,587.7 171.6,587.6 215.5,587.2 259.3,586.7 303.1,586.0 346.9,585.8 390.7,584.3 434.5,582.5 478.4,580.7 522.2,580.2 566.0,578.1 609.8,578.4 653.6,578.0 697.5,575.4 741.3,570.9 785.1,567.9 828.9,566.7 872.7,565.5 916.5,564.2 960.4,571.1 1004.2,574.7 1048.0,578.6"/>
+<line x1="744" y1="203" x2="772" y2="203" stroke="#d62728" stroke-width="3"/>
+<text x="780" y="208" font-size="13" font-family="Arial, sans-serif">普通三四线城市</text>
+</svg>

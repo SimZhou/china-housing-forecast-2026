@@ -40,6 +40,8 @@
 - 城市细分覆盖摘要脚本：`src/summarize_prefecture_housing_by_segment.py`。
 - 本地探索性趋势脚本：`src/build_prefecture_housing_tier_trends.py`。
 - 分层峰值回撤报告脚本：`src/build_prefecture_housing_tier_peak_report.py`。
+- 城市细分趋势脚本：`src/build_prefecture_housing_segment_trends.py`。
+- 城市细分峰值回撤报告脚本：`src/build_prefecture_housing_segment_peak_report.py`。
 - 质量检查报告：`reports/data-quality-notes.md`。
 - 预测目标登记表：`data/model-target-registry.csv`。
 - 单套房特征登记表：`data/property-feature-registry.csv`。
@@ -55,6 +57,6 @@
 - 城市层级种子表只能作为初始切片工具，不能作为最终城市分层结论。
 - 城市细分种子表只能作为初始切片工具，尤其不能把都市圈外围候选直接当作已被验证的承接城市。
 - 购买数据衍生的数值长表只允许保存在 `data/processed/`，不提交到 Git。
-- 购买数据衍生的趋势 CSV 只允许保存在 ignored 路径；SVG 图表可以提交到 `reports/figures/purchased/` 作为报告展示材料。
+- 购买数据衍生的趋势 CSV 只允许保存在 ignored 路径；分层和城市细分 SVG 图表可以提交到 `reports/figures/purchased/` 作为报告展示材料。
 - 可提交的质量摘要只能包含指标级或城市层级聚合质量指标，不得包含逐城市逐年原始数值。
 - 所有原始购买文件保持 ignored，不进入 Git。

@@ -44,6 +44,8 @@
 - `data/prefecture-housing-segment-coverage-summary.csv` 由 `src/summarize_prefecture_housing_by_segment.py` 生成；只允许包含按城市细分组聚合的覆盖质量指标，不得包含逐城市逐年数值。
 - `src/build_prefecture_housing_tier_trends.py` 生成的趋势 CSV 包含购买数据衍生聚合数值，必须保存在 ignored 路径；SVG 图表可提交到 `reports/figures/purchased/`，用于报告展示。
 - `reports/prefecture-housing-tier-peak-drawdown.md` 由 `src/build_prefecture_housing_tier_peak_report.py` 基于本地趋势 CSV 生成；这是报告材料，可以提交，但不得写成预测结论。
+- `src/build_prefecture_housing_segment_trends.py` 生成的城市细分趋势 CSV 包含购买数据衍生聚合数值，必须保存在 ignored 路径；SVG 图表可提交到 `reports/figures/purchased/`，用于报告展示。
+- `reports/prefecture-housing-segment-peak-drawdown.md` 由 `src/build_prefecture_housing_segment_peak_report.py` 基于本地细分趋势 CSV 生成；这是三四线拆分观察材料，可以提交，但不得写成预测结论。
 - `src/normalize_prefecture_housing_data.py` 生成的长表写入 `data/processed/`，属于购买数据衍生数值数据，不得提交。
 - `data/raw/purchased/*/` 只提交 `DATA_SOURCE.md`；购买数据原文件不得入 Git，也不得公开转载。
 - 大文件、付费数据、不可再分发数据不要提交到 Git；只提交获取方式、字段说明和处理脚本。

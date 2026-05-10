@@ -114,10 +114,21 @@
 - 图表同一指标内共用一套坐标轴；房价指标只输出均值和中位数，不计算城市求和。
 - 已生成峰值回撤摘要：`reports/prefecture-housing-tier-peak-drawdown.md`，用于标注峰值年份、最新年份、回撤幅度和末期覆盖率。
 
+### 城市细分探索性趋势图
+
+已实现城市细分趋势脚本：`src/build_prefecture_housing_segment_trends.py`
+
+- 默认输出趋势 CSV：`data/processed/purchased/prefecture-housing-segment-trends.csv`
+- 默认输出 SVG 图表目录：`reports/figures/purchased/prefecture-housing-segment-trends/`
+- 当前可生成 1113 行按指标、年份和城市细分组聚合的趋势数据，以及 7 个 SVG 图表。
+- 趋势 CSV 保持 ignored，不提交到 Git；SVG 图表可提交，用于报告展示。
+- 已生成城市细分峰值回撤摘要：`reports/prefecture-housing-segment-peak-drawdown.md`。
+- 资源型或收缩型候选城市在销售面积、销售额和开发投资指标上回撤最集中，但 2024 年部分住宅类指标覆盖率偏低，需要降权。
+
 ## 下一步
 
 - 对每个工作簿抽取前后若干城市，人工核对单位、年份和数据来源列。
 - 针对 `巢湖`、`莱芜`、`那曲` 做行政区划和缺失原因核查。
 - 针对峰值回撤摘要中覆盖率低于 50% 的组合，优先核对 2024 年原始口径和缺失原因。
-- 基于 `city_segment_v1` 生成细分趋势图和峰值回撤摘要，重点比较普通三四线、资源型或收缩型候选、都市圈外围承接型候选。
+- 针对城市细分峰值回撤摘要中的低覆盖组合，回查 2024 年原始表并标记缺失原因。
 - 为中国城市数据库 v202603 识别原始版、线性插值版和 ARIMA 填补版，避免混用。
