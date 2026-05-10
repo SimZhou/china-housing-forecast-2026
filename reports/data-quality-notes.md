@@ -90,9 +90,19 @@
 - 三四线中，住宅开发投资额缺失率为 11.61%，覆盖等级为 `weak`；其余 6 个指标为 `usable_with_caution`。
 - 三四线摘要包含全部 24 个需人工核查或特殊标记城市，后续不应直接用三四线均值给出强结论。
 
+### 本地探索性趋势图
+
+已实现本地趋势脚本：`src/build_prefecture_housing_tier_trends.py`
+
+- 默认输出趋势 CSV：`data/processed/purchased/prefecture-housing-tier-trends.csv`
+- 默认输出 SVG 图表目录：`reports/figures/purchased/prefecture-housing-tier-trends/`
+- 当前可生成 636 行按指标、年份和城市层级聚合的趋势数据，以及 7 个 SVG 图表。
+- 趋势 CSV 和 SVG 图表包含购买数据衍生数值，均保持 ignored，不提交到 Git。
+- 图表同一指标内共用一套坐标轴；房价指标只输出均值和中位数，不计算城市求和。
+
 ## 下一步
 
 - 对每个工作簿抽取前后若干城市，人工核对单位、年份和数据来源列。
 - 针对 `巢湖`、`莱芜`、`那曲` 做行政区划和缺失原因核查。
-- 基于 `city_key` 和 `city_tier_v1` 生成本地探索性趋势图，图表输出不提交原始购买数据数值。
+- 基于本地探索性趋势图，整理第一版只含方向性描述和证据限制的趋势观察笔记。
 - 为中国城市数据库 v202603 识别原始版、线性插值版和 ARIMA 填补版，避免混用。

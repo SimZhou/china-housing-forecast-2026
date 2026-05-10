@@ -23,6 +23,7 @@ data/raw/purchased/**
 !data/raw/purchased/*/DATA_SOURCE.md
 data/processed/*
 !data/processed/.gitkeep
+reports/figures/purchased/
 
 *.sqlite
 *.db
