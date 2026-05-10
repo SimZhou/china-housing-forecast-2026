@@ -29,6 +29,7 @@ data/processed/*
 *.parquet
 *.feather
 *.csv
+!data/city-registry.csv
 !data/purchased-data-inventory.csv
 !data/purchased-field-registry.csv
 !data/prefecture-city-coverage-audit.csv

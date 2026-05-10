@@ -49,9 +49,11 @@
 - `src/inspect_purchased_spreadsheets.py`：检查已购地级市房地产 Excel 的 sheet、字段、年份、单位和缺失率。
 - `src/audit_prefecture_city_coverage.py`：核对地级市房地产指标 7 个 Excel 的城市覆盖差异。
 - `src/normalize_prefecture_housing_data.py`：把 7 个宽表转换为本地长表，输出到 ignored 的 `data/processed/`。
+- `src/build_city_registry.py`：从城市覆盖核对表生成稳定城市主键表。
 - `data/purchased-data-inventory.csv`：记录购买数据的文件名、大小、类型、来源登记 ID 和 Git 策略。
 - `data/purchased-field-registry.csv`：地级市房地产指标 7 个 Excel 的字段级清单。
 - `data/prefecture-city-coverage-audit.csv`：城市覆盖核对表，不含原始数值。
+- `data/city-registry.csv`：项目城市主键表，后续跨数据源 join 应优先使用 `city_key`。
 - `reports/data-quality-notes.md`：购买数据第一版质量检查笔记。
 
 ## 本地购买数据
