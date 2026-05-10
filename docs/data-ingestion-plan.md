@@ -35,6 +35,7 @@
 - 城市层级覆盖摘要：`data/prefecture-housing-tier-coverage-summary.csv`。
 - 城市层级覆盖摘要脚本：`src/summarize_prefecture_housing_by_tier.py`。
 - 本地探索性趋势脚本：`src/build_prefecture_housing_tier_trends.py`。
+- 分层峰值回撤报告脚本：`src/build_prefecture_housing_tier_peak_report.py`。
 - 质量检查报告：`reports/data-quality-notes.md`。
 - 预测目标登记表：`data/model-target-registry.csv`。
 - 单套房特征登记表：`data/property-feature-registry.csv`。

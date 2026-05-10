@@ -59,6 +59,7 @@
 - `src/build_city_tier_seed.py`：基于城市主键表生成第一版城市层级种子表。
 - `src/summarize_prefecture_housing_by_tier.py`：基于本地长表和城市层级种子表生成分层覆盖质量摘要。
 - `src/build_prefecture_housing_tier_trends.py`：生成本地探索性趋势 CSV 和可提交的 SVG 图表。
+- `src/build_prefecture_housing_tier_peak_report.py`：基于本地趋势 CSV 生成峰值回撤观察报告。
 - `data/purchased-data-inventory.csv`：记录购买数据的文件名、大小、类型、来源登记 ID 和 Git 策略。
 - `data/purchased-field-registry.csv`：地级市房地产指标 7 个 Excel 的字段级清单。
 - `data/prefecture-city-coverage-audit.csv`：城市覆盖核对表，不含原始数值。
@@ -67,6 +68,8 @@
 - `data/prefecture-housing-quality-summary.csv`：地级市房地产指标的聚合质量摘要，不含逐城市逐年数值。
 - `data/prefecture-housing-tier-coverage-summary.csv`：按城市层级拆分的地级市房地产指标覆盖质量摘要。
 - `reports/data-quality-notes.md`：购买数据第一版质量检查笔记。
+- `reports/prefecture-housing-tier-trend-observations.md`：分层趋势图和方向性观察。
+- `reports/prefecture-housing-tier-peak-drawdown.md`：分层峰值年份、回撤幅度和覆盖率摘要。
 
 本地可生成 `data/processed/purchased/prefecture-housing-tier-trends.csv` 和 `reports/figures/purchased/` 下的趋势图。趋势 CSV 保持 ignored；SVG 图表可提交，用于报告展示。
 

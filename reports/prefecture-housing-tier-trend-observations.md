@@ -44,6 +44,7 @@
 - 来源登记：`data/source-registry.csv` 中的 `SRC_CN_PURCHASED_PREF_RE_INDICATORS`。
 - 生成脚本：`src/build_prefecture_housing_tier_trends.py`。
 - 城市层级：`data/city-tier-seed-v1.csv`。
+- 峰值回撤摘要：`reports/prefecture-housing-tier-peak-drawdown.md`。
 
 ## 初步观察
 
@@ -92,7 +93,7 @@
 
 ## 下一步
 
-- 对房价、销售面积、销售额和开发投资分别生成峰值年份、峰值回撤和覆盖率摘要。
+- 针对峰值回撤摘要中覆盖率低于 50% 的组合，核对 2024 年原始口径和缺失原因。
 - 把三四线拆分为资源型或收缩型候选、都市圈外围和普通地级市。
 - 抽样核对 2021-2024 年关键城市的销售面积和销售额数据来源。
 - 接入人口、收入、就业、租金和库存数据后，检查“价格回落”和“成交萎缩”是否同向。
