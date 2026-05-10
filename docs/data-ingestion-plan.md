@@ -29,11 +29,15 @@
 - 城市主键脚本：`src/build_city_registry.py`。
 - 城市层级种子表：`data/city-tier-seed-v1.csv`。
 - 城市层级种子脚本：`src/build_city_tier_seed.py`。
+- 城市细分种子表：`data/city-segment-seed-v1.csv`。
+- 城市细分种子脚本：`src/build_city_segment_seed.py`。
 - 本地长表转换脚本：`src/normalize_prefecture_housing_data.py`。
 - 聚合质量摘要：`data/prefecture-housing-quality-summary.csv`。
 - 质量摘要脚本：`src/summarize_prefecture_housing_data.py`。
 - 城市层级覆盖摘要：`data/prefecture-housing-tier-coverage-summary.csv`。
 - 城市层级覆盖摘要脚本：`src/summarize_prefecture_housing_by_tier.py`。
+- 城市细分覆盖摘要：`data/prefecture-housing-segment-coverage-summary.csv`。
+- 城市细分覆盖摘要脚本：`src/summarize_prefecture_housing_by_segment.py`。
 - 本地探索性趋势脚本：`src/build_prefecture_housing_tier_trends.py`。
 - 分层峰值回撤报告脚本：`src/build_prefecture_housing_tier_peak_report.py`。
 - 质量检查报告：`reports/data-quality-notes.md`。
@@ -49,6 +53,7 @@
 - 购买数据必须先通过文件级盘点，再进入字段级验真。
 - 跨数据源合并必须优先使用 `city_key`，中文城市名只能作为展示字段或辅助核对字段。
 - 城市层级种子表只能作为初始切片工具，不能作为最终城市分层结论。
+- 城市细分种子表只能作为初始切片工具，尤其不能把都市圈外围候选直接当作已被验证的承接城市。
 - 购买数据衍生的数值长表只允许保存在 `data/processed/`，不提交到 Git。
 - 购买数据衍生的趋势 CSV 只允许保存在 ignored 路径；SVG 图表可以提交到 `reports/figures/purchased/` 作为报告展示材料。
 - 可提交的质量摘要只能包含指标级或城市层级聚合质量指标，不得包含逐城市逐年原始数值。

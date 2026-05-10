@@ -38,8 +38,10 @@
 - `data/prefecture-city-coverage-audit.csv` 由 `src/audit_prefecture_city_coverage.py` 生成；只记录城市覆盖差异，不包含原始数值。
 - `data/city-registry.csv` 由 `src/build_city_registry.py` 生成；跨数据源 join 优先使用 `city_key`，不要直接用中文城市名。
 - `data/city-tier-seed-v1.csv` 由 `src/build_city_tier_seed.py` 生成；这是人工规则种子，不是最终城市分层，建模前必须用人口、产业、库存、成交和租金数据校正。
+- `data/city-segment-seed-v1.csv` 由 `src/build_city_segment_seed.py` 生成；这是城市细分人工规则种子，重点拆分三四线，不是最终分组。
 - `data/prefecture-housing-quality-summary.csv` 由 `src/summarize_prefecture_housing_data.py` 基于 ignored 本地长表生成；只允许包含聚合质量指标。
 - `data/prefecture-housing-tier-coverage-summary.csv` 由 `src/summarize_prefecture_housing_by_tier.py` 生成；只允许包含按城市层级聚合的覆盖质量指标，不得包含逐城市逐年数值。
+- `data/prefecture-housing-segment-coverage-summary.csv` 由 `src/summarize_prefecture_housing_by_segment.py` 生成；只允许包含按城市细分组聚合的覆盖质量指标，不得包含逐城市逐年数值。
 - `src/build_prefecture_housing_tier_trends.py` 生成的趋势 CSV 包含购买数据衍生聚合数值，必须保存在 ignored 路径；SVG 图表可提交到 `reports/figures/purchased/`，用于报告展示。
 - `reports/prefecture-housing-tier-peak-drawdown.md` 由 `src/build_prefecture_housing_tier_peak_report.py` 基于本地趋势 CSV 生成；这是报告材料，可以提交，但不得写成预测结论。
 - `src/normalize_prefecture_housing_data.py` 生成的长表写入 `data/processed/`，属于购买数据衍生数值数据，不得提交。
