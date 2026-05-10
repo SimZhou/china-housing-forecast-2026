@@ -46,7 +46,10 @@
 
 - `docs/data-ingestion-plan.md`：数据接入顺序、购买数据接入规则和验收标准。
 - `src/inventory_purchased_data.py`：扫描 `data/raw/purchased/` 并生成购买数据元数据清单。
+- `src/inspect_purchased_spreadsheets.py`：检查已购地级市房地产 Excel 的 sheet、字段、年份、单位和缺失率。
 - `data/purchased-data-inventory.csv`：记录购买数据的文件名、大小、类型、来源登记 ID 和 Git 策略。
+- `data/purchased-field-registry.csv`：地级市房地产指标 7 个 Excel 的字段级清单。
+- `reports/data-quality-notes.md`：购买数据第一版质量检查笔记。
 
 ## 本地购买数据
 

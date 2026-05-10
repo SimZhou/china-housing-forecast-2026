@@ -21,8 +21,9 @@
 
 - 数据资产清单：`data/purchased-data-inventory.csv`。
 - 数据接入脚本：`src/inventory_purchased_data.py`。
-- 字段级清单：后续新增 `data/purchased-field-registry.csv`。
-- 质量检查报告：后续新增 `reports/data-quality-notes.md`。
+- 字段级清单：`data/purchased-field-registry.csv`。
+- 字段检查脚本：`src/inspect_purchased_spreadsheets.py`。
+- 质量检查报告：`reports/data-quality-notes.md`。
 
 ## 验收标准
 
