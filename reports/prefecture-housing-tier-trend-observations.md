@@ -94,6 +94,6 @@
 ## 下一步
 
 - 针对峰值回撤摘要中覆盖率低于 50% 的组合，核对 2024 年原始口径和缺失原因。
-- 把三四线拆分为资源型或收缩型候选、都市圈外围和普通地级市。
+- 已完成三四线初步拆分，后续以 `reports/prefecture-housing-segment-trend-observations.md` 和 `reports/prefecture-housing-segment-peak-drawdown.md` 作为细分观察入口。
 - 抽样核对 2021-2024 年关键城市的销售面积和销售额数据来源。
 - 接入人口、收入、就业、租金和库存数据后，检查“价格回落”和“成交萎缩”是否同向。
